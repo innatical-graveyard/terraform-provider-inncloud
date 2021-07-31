@@ -2,12 +2,13 @@ package main
 
 import (
 	"context"
+	"terraform-provider-inncloud/inncloud"
+
 	"github.com/hashicorp/terraform-plugin-framework/tfsdk"
-	"terraform-provider-hashicups-pf/hashicups"
 )
 
 func main() {
-	tfsdk.Serve(context.Background(), hashicups.New, tfsdk.ServeOpts{
-		Name: "hashicups",
+	tfsdk.Serve(context.Background(), inncloud.New, tfsdk.ServeOpts{
+		Name: "inncloud",
 	})
 }

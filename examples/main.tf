@@ -1,34 +1,37 @@
 terraform {
   required_providers {
-    hashicups = {
-      version = "~> 0.3.1"
-      source  = "hashicorp.com/edu/hashicups"
+    inncloud = {
+      version = "~> 0.0.1"
+      source  = "hashicorp.com/edu/inncloud"
     }
   }
-  required_version = "~> 1.0.3"
 }
 
-provider "hashicups" {
-  username = "education"
-  password = "test123"
-  host     = "http://localhost:19090"
+provider "inncloud" {
+  token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2Mjc2ODA2MDgsImF1ZCI6InNreWUuaW5uYXRpY2FsLmNvbSIsInN1YiI6IjQ4YmQ1M2IwLTYyZTQtNGJmYy1iNWQ5LTQxZGVjMTg1ODhkNiJ9.IMRYSzRSNZAd-1op6v_Vz505YNN656qjoLadSa4jeoQ"
+  project_id = "57372f3d-25c3-4041-a2a2-bfdc353b90c9" 
 }
 
-resource "hashicups_order" "edu" {
-  items = [{
-    coffee = {
-      id = 3
-    }
-    quantity = 2
-    }, {
-    coffee = {
-      id = 1
-    }
-    quantity = 2
-    }
-  ]
+resource "inncloud_server" "UwU" {
+  name = "UwU"
+  model = "starter"
+  image = "ubuntu-20.04"
+  region = "HEL1"
+  cycle = "month"
 }
 
-output "edu_order" {
-  value = hashicups_order.edu
+resource "inncloud_server" "fuck" {
+  name = "fuck"
+  model = "pro"
+  image = "ubuntu-20.04"
+  region = "HEL1"
+  cycle = "month"
+}
+
+resource "inncloud_server" "yes" {
+  name = "yes"
+  model = "starter"
+  image = "ubuntu-20.04"
+  region = "HEL1"
+  cycle = "month"
 }

@@ -1,4 +1,4 @@
-module terraform-provider-hashicups-pf
+module terraform-provider-inncloud
 
 go 1.16
 
