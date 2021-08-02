@@ -107,7 +107,7 @@ func (r resourceOrder) Create(ctx context.Context, req tfsdk.CreateResourceReque
 	}
 
 	client := http.Client{}
-	request, err := http.NewRequest("POST", "http://localhost:3001/projects/"+r.p.projectID+"/servers", bytes.NewBuffer(body))
+	request, err := http.NewRequest("POST", "https://api.innatical.cloud/projects/"+r.p.projectID+"/servers", bytes.NewBuffer(body))
 	if err != nil {
 		resp.Diagnostics = append(resp.Diagnostics, &tfprotov6.Diagnostic{
 			Severity: tfprotov6.DiagnosticSeverityError,
@@ -190,7 +190,7 @@ func (r resourceOrder) Read(ctx context.Context, req tfsdk.ReadResourceRequest, 
 	serverID := state.ID.Value
 
 	client := http.Client{}
-	request, err := http.NewRequest("GET", "http://localhost:3001/projects/"+r.p.projectID+"/servers/"+serverID, nil)
+	request, err := http.NewRequest("GET", "https://api.innatical.cloud/projects/"+r.p.projectID+"/servers/"+serverID, nil)
 	if err != nil {
 		resp.Diagnostics = append(resp.Diagnostics, &tfprotov6.Diagnostic{
 			Severity: tfprotov6.DiagnosticSeverityError,
@@ -277,7 +277,7 @@ func (r resourceOrder) Delete(ctx context.Context, req tfsdk.DeleteResourceReque
 	serverID := state.ID.Value
 
 	client := http.Client{}
-	request, err := http.NewRequest("DELETE", "http://localhost:3001/projects/"+r.p.projectID+"/servers/"+serverID, nil)
+	request, err := http.NewRequest("DELETE", "https://api.innatical.cloud/projects/"+r.p.projectID+"/servers/"+serverID, nil)
 	if err != nil {
 		resp.Diagnostics = append(resp.Diagnostics, &tfprotov6.Diagnostic{
 			Severity: tfprotov6.DiagnosticSeverityError,
